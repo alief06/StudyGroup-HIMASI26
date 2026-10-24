@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <!-- Karakter encoding agar huruf Indonesia tampil benar -->
+  <meta charset="UTF-8" />
+  <!-- Agar tampilan pas di layar ponsel -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Judul tab browser -->
+  <title>Profil Saya – Teknologi Web</title>
+  <!-- Hubungkan file CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <nav class="navbar">
+      <span class="logo">👨‍💻 ProfilKu</span>
+      <!-- Tombol ganti tema gelap/terang -->
+      <button id="btn-tema" class="btn-tema" aria-label="Ganti tema">🌙 Mode Gelap</button>
+    </nav>
+  </header>
+
+  <!-- ===== KONTEN UTAMA ===== -->
+  <main class="main">
+
+    <!-- ===== SECTION: HERO / PERKENALAN ===== -->
+    <section class="hero" id="hero">
+      <div class="avatar-wrapper">
+        <!-- Gambar profil dengan alt text deskriptif -->
+        <img id="foto-profil" src="https://api.dicebear.com/7.x/adventurer/svg?seed=tekweb"
+          alt="Avatar profil mahasiswa" class="avatar" />
+      </div>
+      <div class="hero-teks">
+        <h1 id="nama-mahasiswa">Halo, Saya HIMASI UAD!</h1>
+        <p class="tagline" id="tagline">Mahasiswa Sistem Informasi yang sedang belajar membuat website 🚀</p>
+        <!-- Tombol sapa interaktif -->
+        <button id="btn-sapa" class="btn-utama">👋 Sapa Saya!</button>
+        <!-- Pesan sapa yang muncul saat tombol diklik -->
+        <p id="pesan-sapa" class="pesan-sapa tersembunyi"></p>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: TENTANG SAYA ===== -->
+    <section class="kartu" id="tentang">
+      <h2>📖 Tentang Saya</h2>
+      <p>
+        Nama saya <strong>HIMASI UAD</strong>, mahasiswa semester 3 Sistem Informasi.
+        Saya suka coding, game, dan mendengarkan musik. Saat ini saya sedang belajar
+        membangun website dari nol menggunakan HTML, CSS, dan JavaScript.
+      </p>
+      <!-- List informasi dasar -->
+      <ul class="info-list">
+        <li>🎓 <strong>Jurusan:</strong> Teknik Informatika</li>
+        <li>📍 <strong>Kota:</strong> Yogyakarta</li>
+        <li>📧 <strong>Email:</strong> HIMASI@example.com</li>
+        <li>🌐 <strong>GitHub:</strong> <a href="https://github.com" target="_blank">github.com/HIMASI</a></li>
+      </ul>
+    </section>
+
+    <!-- ===== SECTION: SKILL / KEAHLIAN ===== -->
+    <section class="kartu" id="skill">
+      <h2>💡 Skill Saya</h2>
+      <ul class="skill-list" id="daftar-skill">
+        <li class="skill-item">HTML</li>
+        <li class="skill-item">CSS</li>
+        <li class="skill-item">JavaScript</li>
+        <li class="skill-item">Git</li>
+      </ul>
+    </section>
+
+    <!-- ===== SECTION: FORM KONTAK ===== -->
+    <section class="kartu" id="kontak">
+      <h2>✉️ Kirim Pesan</h2>
+      <form id="form-kontak" class="form-kontak">
+        <!-- Input nama -->
+        <div class="form-grup">
+          <label for="input-nama">Nama Kamu:</label>
+          <input type="text" id="input-nama" name="nama" placeholder="Masukkan namamu..." required />
+        </div>
+        <!-- Input pesan -->
+        <div class="form-grup">
+          <label for="input-pesan">Pesan:</label>
+          <textarea id="input-pesan" name="pesan" rows="4" placeholder="Tulis pesanmu di sini..." required></textarea>
+        </div>
+        <!-- Tombol kirim -->
+        <button type="submit" class="btn-utama" id="btn-kirim">📨 Kirim Pesan</button>
+        <!-- Konfirmasi setelah form dikirim -->
+        <p id="konfirmasi-form" class="tersembunyi konfirmasi"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>Dibuat menggunakan HTML, CSS & JavaScript</p>
+    <p>© 2024 HIMASI UAD– Teknologi Web</p>
+  </footer>
+
+  <!-- Hubungkan file JavaScript (taruh di bawah agar HTML selesai dimuat dulu) -->
+  <script src="script.js"></script>
+</body>
+
+</html>

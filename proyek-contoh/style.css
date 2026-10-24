@@ -1,0 +1,345 @@
+/* ===================================================
+   STYLE.CSS – Halaman Profil Interaktif
+   Teknologi Web | Tanpa framework eksternal
+   =================================================== */
+
+/* ----- 1. GOOGLE FONTS & VARIABEL WARNA ----- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Variabel CSS (seperti "wadah" warna yang bisa dipakai di mana saja) */
+:root {
+  --warna-latar: #f0f4f8;
+  --warna-kartu: #ffffff;
+  --warna-teks: #1a202c;
+  --warna-teks-ringan: #4a5568;
+  --warna-aksen: #4f46e5;       /* ungu indigo */
+  --warna-aksen-hover: #4338ca;
+  --warna-tagline: #6366f1;
+  --warna-border: #e2e8f0;
+  --warna-skill-latar: #ede9fe;
+  --warna-skill-teks: #4f46e5;
+  --bayangan: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --bayangan-hover: 0 8px 30px rgba(79, 70, 229, 0.2);
+  --radius: 16px;
+  --transisi: 0.3s ease;
+}
+
+/* Variabel saat MODE GELAP aktif (class "gelap" ditambahkan ke <body>) */
+body.gelap {
+  --warna-latar: #0f172a;
+  --warna-kartu: #1e293b;
+  --warna-teks: #f1f5f9;
+  --warna-teks-ringan: #94a3b8;
+  --warna-aksen: #818cf8;
+  --warna-aksen-hover: #6366f1;
+  --warna-tagline: #a5b4fc;
+  --warna-border: #334155;
+  --warna-skill-latar: #312e81;
+  --warna-skill-teks: #c7d2fe;
+  --bayangan: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ----- 2. RESET & BASE ----- */
+*, *::before, *::after {
+  box-sizing: border-box; /* agar padding tidak menambah lebar elemen */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* animasi scroll halus saat klik anchor */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--warna-latar);
+  color: var(--warna-teks);
+  line-height: 1.6;
+  transition: background-color var(--transisi), color var(--transisi);
+  min-height: 100vh;
+}
+
+/* ----- 3. HEADER & NAVBAR ----- */
+.header {
+  position: sticky;       /* navbar tetap di atas saat scroll */
+  top: 0;
+  z-index: 100;
+  background-color: var(--warna-kartu);
+  border-bottom: 1px solid var(--warna-border);
+  box-shadow: var(--bayangan);
+  transition: background-color var(--transisi);
+}
+
+.navbar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between; /* logo kiri, tombol kanan */
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--warna-aksen);
+  letter-spacing: -0.02em;
+}
+
+/* ----- 4. TOMBOL TEMA ----- */
+.btn-tema {
+  background: var(--warna-skill-latar);
+  color: var(--warna-aksen);
+  border: 1px solid var(--warna-border);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;  /* pill shape */
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all var(--transisi);
+}
+
+.btn-tema:hover {
+  background-color: var(--warna-aksen);
+  color: white;
+  transform: scale(1.05); /* sedikit membesar saat hover */
+}
+
+/* ----- 5. KONTEN UTAMA ----- */
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* jarak antar section */
+}
+
+/* ----- 6. HERO SECTION ----- */
+.hero {
+  background: linear-gradient(135deg, var(--warna-aksen) 0%, var(--warna-tagline) 100%);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+  color: white;
+  box-shadow: var(--bayangan);
+}
+
+.avatar-wrapper {
+  width: 120px;
+  height: 120px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;           /* membuat gambar bulat */
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  background-color: white;
+  object-fit: cover;
+}
+
+.hero h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: 1rem;
+  opacity: 0.9;
+  max-width: 400px;
+}
+
+/* ----- 7. TOMBOL UTAMA ----- */
+.btn-utama {
+  background-color: white;
+  color: var(--warna-aksen);
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all var(--transisi);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-utama:hover {
+  transform: translateY(-3px); /* naik sedikit saat hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-utama:active {
+  transform: translateY(-1px); /* turun sedikit saat diklik */
+}
+
+/* ----- 8. PESAN SAPA ----- */
+.pesan-sapa {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+/* ----- 9. KARTU (card) ----- */
+.kartu {
+  background-color: var(--warna-kartu);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1px solid var(--warna-border);
+  box-shadow: var(--bayangan);
+  transition: background-color var(--transisi), box-shadow var(--transisi);
+}
+
+.kartu:hover {
+  box-shadow: var(--bayangan-hover);
+}
+
+.kartu h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--warna-teks);
+}
+
+/* ----- 10. INFO LIST (di section Tentang Saya) ----- */
+.info-list {
+  list-style: none;  /* hilangkan bullet default */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.info-list li {
+  color: var(--warna-teks-ringan);
+  font-size: 0.95rem;
+}
+
+.info-list a {
+  color: var(--warna-aksen);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.info-list a:hover {
+  text-decoration: underline;
+}
+
+/* ----- 11. SKILL LIST ----- */
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; /* pindah baris jika tidak cukup */
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.skill-item {
+  background-color: var(--warna-skill-latar);
+  color: var(--warna-skill-teks);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all var(--transisi);
+}
+
+.skill-item:hover {
+  transform: scale(1.08);
+}
+
+/* ----- 12. FORM KONTAK ----- */
+.form-kontak {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-grup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-grup label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--warna-teks-ringan);
+}
+
+.form-grup input,
+.form-grup textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--warna-border);
+  border-radius: 10px;
+  background-color: var(--warna-latar);
+  color: var(--warna-teks);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: border-color var(--transisi);
+  outline: none;
+  resize: vertical; /* textarea bisa diubah tingginya */
+}
+
+.form-grup input:focus,
+.form-grup textarea:focus {
+  border-color: var(--warna-aksen); /* highlight saat aktif */
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* ----- 13. KONFIRMASI FORM ----- */
+.konfirmasi {
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid #bbf7d0;
+}
+
+body.gelap .konfirmasi {
+  background-color: #14532d;
+  color: #86efac;
+  border-color: #166534;
+}
+
+/* ----- 14. TERSEMBUNYI (kelas utilitas) ----- */
+.tersembunyi {
+  display: none; /* elemen tidak tampak sampai JavaScript menghapus kelas ini */
+}
+
+/* ----- 15. FOOTER ----- */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--warna-teks-ringan);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--warna-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ----- 16. MEDIA QUERY (RESPONSIF) ----- */
+/* Tampilan untuk layar lebar (tablet ke atas) */
+@media (min-width: 600px) {
+  .hero {
+    flex-direction: row;  /* avatar dan teks berjajar */
+    text-align: left;
+    gap: 2rem;
+  }
+
+  .avatar-wrapper {
+    flex-shrink: 0; /* ukuran avatar tidak mengecil */
+  }
+}
